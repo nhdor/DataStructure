@@ -41,10 +41,6 @@ public class XArrays {
 
         T[] newArray = (T[])Array.newInstance(source.getClass().getComponentType(), length);
 
-        // String[] source = { "a", "b", "c", "d", "e" };
-
-        // 1,3
-        // {b , c , d}
 
         for (int i = 0; i < length; i++) {
             newArray[i] = source[i+startIndex];
