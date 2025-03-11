@@ -78,14 +78,4 @@ public class YArrays {
     }
 
 
-
-
-    public static void main(String[] args) {
-
-//        int[] source = { 1, 2, 3, 4, 5 };
-//        int[] destination = new int[5];
-//        YArrays.copy(source, 1, destination, 2, 3);
-
-    }
-
 }
