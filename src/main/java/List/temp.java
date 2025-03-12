@@ -1,14 +1,18 @@
 package List;
 
-import java.util.Comparator;
-import java.util.function.Consumer;
 
 public class temp {
     public static void main(String[] args) {
-        XArrayList<Integer> list = new XArrayList<>();
+
+
+        XList<Integer> list = new XLinkedList<>();
         list.add(10);
         list.add(20);
+        list.add(30);
 
-        System.out.println(list.contains(10));
+        System.out.println(list.remove(1));
+
+        System.out.println(list.get(1));
+
     }
 }
