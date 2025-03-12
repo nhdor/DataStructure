@@ -7,9 +7,9 @@ import java.util.NoSuchElementException;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * XArrayStack 클래스의 테스트를 수행합니다.
+ * XLinkedStack 클래스의 테스트를 수행합니다.
  */
-public class XArrayStackTest {
+public class XLinkedStackTest {
     private XStack<Integer> stack;
 
     /**
@@ -17,7 +17,7 @@ public class XArrayStackTest {
      */
     @BeforeEach
     void setUp() {
-        stack = new XArrayStack<Integer>(); // 구현체를 여기에 사용
+        stack = new XLinkedStack<Integer>(); // 구현체를 여기에 사용
     }
 
     /**
@@ -100,7 +100,7 @@ public class XArrayStackTest {
         assertEquals(0, stack.size());
     }
 
-    /**r
+    /**
      * Null 값 입력 검증 테스트를 수행합니다.
      */
     @Test
@@ -108,3 +108,4 @@ public class XArrayStackTest {
         assertThrows(NullPointerException.class, () -> stack.push(null));
     }
 }
+

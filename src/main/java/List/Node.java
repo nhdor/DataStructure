@@ -2,14 +2,16 @@ package List;
 
 public class Node<T> implements Comparable<Node<T>> {
 
-    T data;
-    Node<T> next;
+    public T data;
+    public Node<T> next;
 
     public Node(T data) {
         this.data = data;
     }
 
     public Node() {
+        this.data = null;
+        this.next = null;
     }
 
     @Override

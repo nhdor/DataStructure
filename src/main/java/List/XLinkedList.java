@@ -1,16 +1,13 @@
 package List;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.LinkedList;
 import java.util.function.Consumer;
 
 public class XLinkedList<T> implements XList<T>{
-    Node start = null;
-    Node prev = null;
+    Node<T> start = null;
+    Node<T> prev = null;
     int size = 0;
-    T [] Nodes;
 
     public XLinkedList() {
     }
@@ -20,7 +17,7 @@ public class XLinkedList<T> implements XList<T>{
         if(element == null){
             throw new NullPointerException("element is null");
         }
-        Node newNode = new Node(element);
+        Node<T> newNode = new Node<>(element);
 
         if(size == 0){
             start = newNode;
@@ -36,12 +33,12 @@ public class XLinkedList<T> implements XList<T>{
 
     @Override
     public void add(int index, T element) {
-        Node newNode = new Node(element);
+        Node<T> newNode = new Node<>(element);
         prev = start;
         for (int i = 0; i < index-1; i++) {
             prev = prev.next;
         }
-        Node temp = prev.next;
+        Node<T> temp = prev.next;
         prev.next = newNode;
         newNode.next = temp;
 
@@ -58,7 +55,7 @@ public class XLinkedList<T> implements XList<T>{
         if(index == 0){
             start = null;
             size--;
-            return (T) prev.data;
+            return  prev.data;
         }
 
         for (int i = 0; i < index-1; i++) {
@@ -72,7 +69,7 @@ public class XLinkedList<T> implements XList<T>{
 
         size--;
 
-        return (T)del.data ;
+        return del.data ;
     }
 
     @Override
@@ -137,25 +134,25 @@ public class XLinkedList<T> implements XList<T>{
     public T get(int index) {
         prev = start;
         if(index<0 || index>=size){throw new IndexOutOfBoundsException();}
-        if(index ==0) return (T) prev.data;
+        if(index ==0) return prev.data;
 
         for (int i = 0; i < index; i++) {
             prev = prev.next;
         }
 
-        return (T) prev.data;
+        return  prev.data;
     }
 
     @Override
     public void set(int index, T element) {
-        Node newNode = new Node(element);
+        Node<T> newNode = new Node<>(element);
 
         prev = start;
         for (int i = 0; i < index-2; i++) {
             prev = prev.next;
         }
 
-        Node temp = prev.next;
+        Node<T> temp = prev.next;
         prev.next = newNode;
         newNode.next = temp;
     }
@@ -178,7 +175,7 @@ public class XLinkedList<T> implements XList<T>{
         for (int i = 0; i < size - 1; i++) {
             nodes[i].next = nodes[i + 1];
         }
-        nodes[size - 1].next = null; // 마지막 노드의 next를 null로 설정
+        nodes[size - 1].next = null;
 
         start = nodes[0];
     }
@@ -194,7 +191,7 @@ public class XLinkedList<T> implements XList<T>{
         }
 
         for (int i = 0; i <toIndex-fromIndex; i++) {
-            sub.add((T) prev.data);
+            sub.add( prev.data);
             prev = prev.next;
         }
 
@@ -216,7 +213,7 @@ public class XLinkedList<T> implements XList<T>{
     public void forEach(Consumer<T> action) {
         prev = start;
         for (int i = 0; i < size-1; i++) {
-            T element = (T) prev.data;
+            T element =  prev.data;
             action.accept(element);
             prev = prev.next;
         }
@@ -245,7 +242,7 @@ public class XLinkedList<T> implements XList<T>{
         prev = start;
 
         for (int i = 0; i <size; i++) {
-            copy.add((T) prev.data);
+            copy.add( prev.data);
             prev = prev.next;
         }
 

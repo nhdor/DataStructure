@@ -1,11 +1,20 @@
 package Stack;
 
+
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 public class XArrayStack<T> implements XStack<T>{
-    private T [] Array = (T[]) new Object[10];
-    private int size = 0;
+
+    private T [] Array;
+    private int size;
+
+
+
+    public XArrayStack() {
+        T [] Array = (T[]) new Object[10];
+         size = 0;
+    }
 
     @Override
     public void push(T element) {
@@ -24,7 +33,6 @@ public class XArrayStack<T> implements XStack<T>{
 
     @Override
     public T pop() {
-
         if(size==0){
             throw new NoSuchElementException();
         }
