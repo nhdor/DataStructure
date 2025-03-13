@@ -126,16 +126,4 @@ public class XArrayQueueTest {
     /**
      * 큐의 순차적 순회(Iterator) 동작을 테스트합니다.
      */
-//    @Test
-//    void testIterator() {
-//        queue.enqueue(10);
-//        queue.enqueue(20);
-//
-//        StringBuilder sb = new StringBuilder();
-//        for (Integer element : queue) {
-//            sb.append(element).append(" ");
-//        }
-//
-//        assertEquals("10 20 ", sb.toString().trim()); // 큐의 요소들을 순차적으로 확인
-//    }
 }

@@ -1,6 +1,7 @@
 package Queue;
 
 import java.util.Iterator;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 public class XArrayQueue<T> implements XQueue<T> {
@@ -97,32 +98,27 @@ public class XArrayQueue<T> implements XQueue<T> {
 
     @Override
     public Iterator<T> iterator() {
+        List.of()
         return new Iterator<T>() {
-            //인덱스
-            int idx;
+            private int idx = front; // 순차적 탐색을 위한 초기 인덱스
 
             @Override
             public boolean hasNext() {
-                if(front == rear) {
-                    return false;
-                }
-                else{
-                    return true;
-                }
-
+                return idx != rear; // front == rear이면 큐가 비었으므로 false 반환
             }
 
             @Override
             public T next() {
-                while(!hasNext()) {
-                    idx = front + 1;
-                    if(idx>Array.length-1) {
-                        idx=idx % Array.length;
-                    }
+                if (!hasNext()) {
+                    throw new NoSuchElementException("No more elements in the queue");
                 }
 
-                return Array[idx];
+                T element = Array[idx];
+                idx = (idx + 1) % Array.length; // 순차적으로 순회
+
+                return element;
             }
         };
+
     }
 }

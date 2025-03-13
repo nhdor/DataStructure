@@ -168,7 +168,7 @@ public class XLinkedList<T> implements XList<T>{
             prev = prev.next;
         }
 
-        //정렬
+        // 정렬
         Arrays.sort(nodes,0,size,Comparator.comparing(node->node.data, comparator));
 
         // 정렬된 순서대로 연결리스트를 재구성
